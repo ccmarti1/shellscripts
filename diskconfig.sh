@@ -13,4 +13,8 @@ echo -e "\n\n Partition Configeration: \n\n" >>$FILENAME.report
 fdisk -l | head -17 >>$FILENAME.report
 
 echo -e "\n\n Mounted Filesystems: \n\n" >>$FILENAME.report
-df -hT | grep -v tmp >>$FILENAME.report 
+df -hT | grep -v tmp >>$FILENAME.report
+
+echo -e "\n\n RAID Configeration: \n\n" >>FILENAME.report
+mdadm --detail /dev/md0 >>$FILENAME.report
+ 
